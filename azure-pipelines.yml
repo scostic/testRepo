@@ -20,7 +20,7 @@ steps:
     location: 'West Europe'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/scostic/testRepo/main/CreateWebApp/azuredeploy.json'
-    overrideParameters: '-projectName testARMpipeline'
+    overrideParameters: '-projectName testARMpipelines'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
 
