@@ -22,6 +22,7 @@ steps:
     csmFileLink: 'https://raw.githubusercontent.com/scostic/testRepo/main/CreateVM/azuredeploy.json'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployLinuxVM'
+    overrideParameters: -vmName ubuntu-little
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
