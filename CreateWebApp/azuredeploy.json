@@ -38,7 +38,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "relativePath": "linkedStorageAccount.json"
+          "uri": "https://raw.githubusercontent.com/scostic/testRepo/main/CreateWebApp/linkedStorageAccount.json"
         },
         "parameters": {
           "storageAccountName": {
