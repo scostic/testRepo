@@ -22,7 +22,7 @@
         "sku": {
             "name": "Standard_LRS"
         },
-        "kind": "Storage"
+        "kind": "StorageV2"
     },
     {
         "name": "ubuntuVM1-PublicIP",
