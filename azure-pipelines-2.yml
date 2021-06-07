@@ -13,7 +13,7 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Subscription'
-    azureResourceManagerConnection: 'SpaceCloudGR_scostic'
+    azureResourceManagerConnection: 'SpaceCloudGR-scostic'
     subscriptionId: '4060d370-498f-409c-a563-c62076a279fe'
     location: 'West Europe'
     templateLocation: 'URL of the file'
