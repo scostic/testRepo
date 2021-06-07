@@ -135,7 +135,7 @@
         },
         "properties": {
             "hardwareProfile": {
-                "vmSize": "Standard_A2_v2"
+                "vmSize": "Standard_F8s_v2"
             },
             "osProfile": {
                 "computerName": "ubuntuVM1",
@@ -146,7 +146,7 @@
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04-LTS",
+                    "sku": "18.04-LTS",
                     "version": "latest"
                 },
                 "osDisk": {
