@@ -7,7 +7,7 @@
     "resources": [{
         "name": "[toLower('ubuntuVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2019-06-01",
+        "apiVersion": "2020-06-01",
 		"resourceGroup": "RG-scostic",
         "location": "westeurope",
         "tags": {
