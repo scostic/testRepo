@@ -5,7 +5,7 @@
     "functions": [],
     "variables": {},
     "resources": [{
-        "name": "[toLower('scosticUbuntuVM1storage')]",
+        "name": "[toLower('ubuntuVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
         "location": "[resourceGroup().location]",
@@ -132,8 +132,8 @@
             },
             "osProfile": {
                 "computerName": "ubuntuVM1",
-                "adminUsername": "adminUsername",
-                "adminPassword": "adminPassword"
+                "adminUsername": "scostic",
+                "adminPassword": "scosticP@ssw0rd!"
             },
             "storageProfile": {
                 "imageReference": {
@@ -158,7 +158,7 @@
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                     "enabled": true,
-                    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower('scosticUbuntuVM1storage'))).primaryEndpoints.blob]"
+                    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower('ubuntuVM1storage'))).primaryEndpoints.blob]"
                 }
             }
         }
