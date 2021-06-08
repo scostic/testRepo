@@ -8,6 +8,7 @@
         "name": "[toLower('ubuntuVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
+		"resourceGroup": "RG-scostic"
         "location": "westeurope",
         "tags": {
             "displayName": "ubuntuVM1 Storage Account"
@@ -128,7 +129,7 @@
         },
         "properties": {
             "hardwareProfile": {
-                "vmSize": "Standard_F8s_v2"
+                "vmSize": "Standard_B2s"
             },
             "osProfile": {
                 "computerName": "ubuntuVM1",
