@@ -7,7 +7,7 @@
     "resources": [{
         "name": "[toLower('ubuntuVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2020-06-01",
+        "apiVersion": "2019-06-01",
         "location": "westeurope",
         "tags": {
             "displayName": "ubuntuVM1 Storage Account"
