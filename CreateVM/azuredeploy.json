@@ -5,12 +5,12 @@
     "functions": [],
     "variables": {},
     "resources": [{
-        "name": "[toLower('ubuntuVM1storage')]",
+        "name": "[toLower('scosticVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2019-06-01",
         "location": "westeurope",
         "tags": {
-            "displayName": "ubuntuVM1 Storage Account"
+            "displayName": "scosticVM1 Storage Account"
         },
         "sku": {
             "name": "Standard_LRS"
@@ -18,7 +18,7 @@
         "kind": "StorageV2"
     },
     {
-        "name": "ubuntuVM1-PublicIP",
+        "name": "scosticVM1-PublicIP",
         "type": "Microsoft.Network/publicIPAddresses",
         "apiVersion": "2019-11-01",
         "location": "westeurope",
@@ -28,12 +28,12 @@
         "properties": {
             "publicIPAllocationMethod": "Dynamic",
             "dnsSettings": {
-                "domainNameLabel": "[toLower('ubuntuVM1')]"
+                "domainNameLabel": "[toLower('scosticVM1')]"
             }
         }
     },
     {
-        "name": "ubuntuVM1-nsg",
+        "name": "scosticVM1-nsg",
         "type": "Microsoft.Network/networkSecurityGroups",
         "apiVersion": "2018-08-01",
         "location": "westeurope",
@@ -57,15 +57,15 @@
         }
     },
     {
-        "name": "ubuntuVM1-VirtualNetwork",
+        "name": "scosticVM1-VirtualNetwork",
         "type": "Microsoft.Network/virtualNetworks",
         "apiVersion": "2019-11-01",
         "location": "westeurope",
         "dependsOn": [
-            "[resourceId('Microsoft.Network/networkSecurityGroups', 'ubuntuVM1-nsg')]"
+            "[resourceId('Microsoft.Network/networkSecurityGroups', 'scosticVM1-nsg')]"
         ],
         "tags": {
-            "displayName": "ubuntuVM1-VirtualNetwork"
+            "displayName": "scosticVM1-VirtualNetwork"
         },
         "properties": {
             "addressSpace": {
@@ -75,11 +75,11 @@
             },
             "subnets": [
                 {
-                    "name": "ubuntuVM1-VirtualNetwork-Subnet",
+                    "name": "scosticVM1-VirtualNetwork-Subnet",
                     "properties": {
                         "addressPrefix": "10.0.0.0/24",
                         "networkSecurityGroup": {
-                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'ubuntuVM1-nsg')]"
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'scosticVM1-nsg')]"
                         }
                     }
                 }
@@ -87,16 +87,16 @@
         }
     },
     {
-        "name": "ubuntuVM1-NetworkInterface",
+        "name": "scosticVM1-NetworkInterface",
         "type": "Microsoft.Network/networkInterfaces",
         "apiVersion": "2019-11-01",
         "location": "westeurope",
         "dependsOn": [
-            "[resourceId('Microsoft.Network/publicIPAddresses', 'ubuntuVM1-PublicIP')]",
-            "[resourceId('Microsoft.Network/virtualNetworks', 'ubuntuVM1-VirtualNetwork')]"
+            "[resourceId('Microsoft.Network/publicIPAddresses', 'scosticVM1-PublicIP')]",
+            "[resourceId('Microsoft.Network/virtualNetworks', 'scosticVM1-VirtualNetwork')]"
         ],
         "tags": {
-            "displayName": "ubuntuVM1-NetworkInterface"
+            "displayName": "scosticVM1-NetworkInterface"
         },
         "properties": {
             "ipConfigurations": [
@@ -105,10 +105,10 @@
                     "properties": {
                         "privateIPAllocationMethod": "Dynamic",
                         "publicIPAddress": {
-                            "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'ubuntuVM1-PublicIP')]"
+                            "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'scosticVM1-PublicIP')]"
                         },
                         "subnet": {
-                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'ubuntuVM1-VirtualNetwork', 'ubuntuVM1-VirtualNetwork-Subnet')]"
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'scosticVM1-VirtualNetwork', 'scosticVM1-VirtualNetwork-Subnet')]"
                         }
                     }
                 }
@@ -116,22 +116,22 @@
         }
     },
     {
-        "name": "ubuntuVM1",
+        "name": "scosticVM1",
         "type": "Microsoft.Compute/virtualMachines",
         "apiVersion": "2019-07-01",
         "location": "westeurope",
         "dependsOn": [
-            "[resourceId('Microsoft.Network/networkInterfaces', 'ubuntuVM1-NetworkInterface')]"
+            "[resourceId('Microsoft.Network/networkInterfaces', 'scosticVM1-NetworkInterface')]"
         ],
         "tags": {
-            "displayName": "ubuntuVM1"
+            "displayName": "scosticVM1"
         },
         "properties": {
             "hardwareProfile": {
                 "vmSize": "Standard_B2s"
             },
             "osProfile": {
-                "computerName": "ubuntuVM1",
+                "computerName": "scosticVM1",
                 "adminUsername": "scostic",
                 "adminPassword": "scosticP@ssw0rd!"
             },
@@ -143,7 +143,7 @@
                     "version": "latest"
                 },
                 "osDisk": {
-                    "name": "ubuntuVM1-OSDisk",
+                    "name": "scosticVM1-OSDisk",
                     "caching": "ReadWrite",
                     "createOption": "FromImage"
                 }
@@ -151,14 +151,14 @@
             "networkProfile": {
                 "networkInterfaces": [
                     {
-                        "id": "[resourceId('Microsoft.Network/networkInterfaces', 'ubuntuVM1-NetworkInterface')]"
+                        "id": "[resourceId('Microsoft.Network/networkInterfaces', 'scosticVM1-NetworkInterface')]"
                     }
                 ]
             },
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                     "enabled": true,
-                    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower('ubuntuVM1storage'))).primaryEndpoints.blob]"
+                    "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', toLower('scosticVM1storage'))).primaryEndpoints.blob]"
                 }
             }
         }
