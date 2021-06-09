@@ -1,6 +1,7 @@
 #cloud-config
 package_update: true
 packages:
- - wget
+ - iperf
 runcmd:
- - [ wget, "http://slashdot.org", -O, /tmp/index.html ]
+ - mkdir /firstrun
+ - [ wget, "http://slashdot.org", -O, /firstrun/index.html ]
