@@ -1,9 +1,17 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "_artifactsLocation": {
+            "type": "string",
+            "defaultValue": "https://github.com/scostic/testRepo/tree/main/CreateVM",
+            "metadata": { 
+                "description": "Artfacts location."
+            }
+        }
+    },
     "functions": [],
-    "variables": {},
+    "variables": {"customData": "[concat('#include\n',uri(parameters('_artifactsLocation'),'Cloud-Init.txt'))]"},
     "resources": [{
         "name": "[toLower('scosticVM1storage')]",
         "type": "Microsoft.Storage/storageAccounts",
@@ -133,7 +141,8 @@
             "osProfile": {
                 "computerName": "scosticVM1",
                 "adminUsername": "scostic",
-                "adminPassword": "scosticP@ssw0rd!"
+                "adminPassword": "scosticP@ssw0rd!",
+                "customData": "[base64(variables('customData'))]"
             },
             "storageProfile": {
                 "imageReference": {
