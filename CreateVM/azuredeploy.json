@@ -142,7 +142,7 @@
                 "computerName": "scosticVM1",
                 "adminUsername": "scostic",
                 "adminPassword": "scosticP@ssw0rd!",
-                "customData": "[base64(variables('customData'))]"
+               
             },
             "storageProfile": {
                 "imageReference": {
