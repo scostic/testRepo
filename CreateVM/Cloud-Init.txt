@@ -1,5 +1,6 @@
 #cloud-config
-apt_upgrade: true
+package_update: true
+packages:
+ - wget
 runcmd:
  - [ wget, "http://slashdot.org", -O, /tmp/index.html ]
- - [ sh, -xc, "echo $(date) ': hello world!'" ]
