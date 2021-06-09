@@ -4,7 +4,7 @@
     "parameters": {
         "_artifactsLocation": {
             "type": "string",
-            "defaultValue": "https://github.com/scostic/testRepo/tree/main/CreateVM",
+            "defaultValue": "https://github.com/scostic/testRepo/tree/main/CreateVM/",
             "metadata": { 
                 "description": "Artfacts location."
             }
